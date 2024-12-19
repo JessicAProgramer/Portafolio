@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-6">
+        <img src="{% static 'portfolio/yc.jpeg' %}" alt="">
+    </div>
+    <div class="col-md-6 my-auto">
+        <h1>Hola soy <strong>Yessica Constante</strong></h1>
+        <h3>Desarrolladora  Python</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nemo qui accusantium, ut animi,
+            veniam, molestiae saepe
+            fuga doloribus consequuntur illo enim quod quos quidem quis 
+            placeat voluptatem exercitationem beatae?</p>
+    </div>
+</header>
+<div class="row my-4 text-center">
+    <h3>Mis Projectos</h3>
+
+{% for project in projects %}
+
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project ">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top" />
+            <div class="card bg-black card-body">
+                <h2 class="text-light">{{project.title}}</h2>
+                <p class="text-light">{{project.description}}</p>
+
+            
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endfor %}
+{% endblock %}
+</div>
+
